@@ -1,0 +1,7 @@
+Buenos días, disculpe las molestias. Debido a que los archivos HTML se guardan en formato enlace para así poder mostrarlos en su navegador 
+(estos ejemplos no son interactuables, deben de ser ejecutados simultaneamente con el servidor XAMPP), les adjuntos los respectivos codigos 
+en formato texto.
+
+Muchas gracias.
+Un saludo.
+Raúl.

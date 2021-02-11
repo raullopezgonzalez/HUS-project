@@ -1,0 +1,481 @@
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Insert</title>
+	
+<style>
+p.one {
+	background-color:#008CBA;
+	color : white; 
+	padding: 12px 20px; 
+	margin: 8px 0; 
+	border-style: solid;
+	border-color: black;
+	border-radius: 12px; 
+	border-width: medium ;
+	text-align: center;
+
+}
+
+p.two {
+	background-color:#3CBC8D;
+	color : white; 
+	padding: 12px 20px; 
+	margin: 8px 0; 
+	border-style: solid;
+	border-color: black;
+	border-radius: 12px; 
+	border-width: medium ;
+	
+
+}
+
+
+.grouped_buttons {
+	display: block;
+	margin-bottom: 2px ; 
+} 
+
+
+.button_group {
+font-size : 30px;
+height:70px;
+  display: block;
+  margin-bottom: 10px ; 
+  background-color: #008CBA;
+	border-radius: 12px;
+	border-color:  black;
+	border-width: medium ;
+	color: white;
+  padding: 10px 24px; 
+  cursor: pointer; 
+  float: left; 
+
+}
+
+.button {
+	box-sizing: border-box;	
+	width: 100%;
+	background-color: #008CBA;
+	border-radius: 12px;
+	border-color:  black;
+	border-width: medium ;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+
+.button2 {
+	box-sizing: border-box;	
+	background-color: #f44336;
+	border-radius: 12px;
+	border-color:  black;
+	border-width: medium ;
+	color: white;	
+	float:right;	
+	padding: 15px 15px;
+	text-align: center;
+	text-decoration: none;
+	display: block;
+	font-size: 16px;
+	margin: 10px 10px;
+	cursor: pointer;
+	height:100px;
+    width:150px;
+}
+
+
+h1 { color: #111; font-family: 'Open Sans Condensed', sans-serif; font-size: 48px; font-weight: 700; line-height: 48px; margin: 0 0 0; padding: 20px 30px; text-align: center; text-transform: uppercase; 
+text-decoration: underline ;}
+
+
+h2 { color: #111; font-family: 'Open Sans Condensed', sans-serif; font-size: 32px; font-weight: 700; line-height: 32px; margin: 0 0 0; padding: 0 30px; text-align: center; text-transform: uppercase; 
+text-decoration: underline ;}
+
+h3 { color: #111; font-family: 'Open Sans Condensed', sans-serif; font-size: 24px; font-weight: 700; line-height: 24px; margin: 0 0 0; padding: 20px 30px;text-align: center; text-transform: uppercase; 
+text-decoration: underline ;}
+
+
+h4 { color: #111; font-family: 'Open Sans Condensed', sans-serif; font-size: 12px; font-weight: 700; line-height: 12px; margin: 0 0 24px; padding: 0 30px; text-align: center; text-transform: uppercase; 
+text-decoration: underline ;}
+
+
+input[type="text"] {
+            display: block;
+			width:100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			box-sizing: border-box;
+			border-color:  black;
+			border-radius: 12px;
+			background-color: gray;
+			color: white;
+			border-width: medium ;
+        }
+		
+input[type="int"] {
+			display: block;
+			width:100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			box-sizing: border-box;
+			border-color:  black;
+			border-radius: 12px;	
+			background-color: gray;
+			color: white;
+			border-width: medium ;
+			
+				
+        }
+		
+input[type="number"] {
+            display: block;
+			width:100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			box-sizing: border-box;
+			border-color:  black;
+			border-radius: 12px;
+			background-color: gray;
+			color: white;
+			border-width: medium ;
+			-webkit-appearance: textfield;
+			-moz-appearance: textfield;
+			appearance: textfield;
+		
+        }
+		
+input[type="date"] {
+            display: block;
+			width:100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			box-sizing: border-box;
+			border-color:  black;
+			border-radius: 12px;
+			background-color: gray;
+			color: white;
+			border-width: medium ;
+        }
+		
+input[type=number]::-webkit-inner-spin-button {
+  width: 300px;
+  height: 60px;
+}
+	
+	
+::placeholder {
+  color: white;
+  }
+		
+		
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 25px;
+  background: grey;
+  border:  black;
+  border-radius: 12px;
+  border-width: medium ;
+  outline: none;
+  opacity: 1;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1.5;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: yellow;
+  border-radius: 50%; 
+  border:  black;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%; 
+  border:  black;
+  background: yellow;
+  cursor: pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+	<img src= "../IMAGES/HUS.jpg"		style ="left">  
+			
+	<button onclick="window.location.href='http://localhost/HUS_Project/HTML/home.html';" style= "top; width: 150px; height: 70px; font-size : 20px;" type="button" class="button2"><i class="fa fa-home">  Home</i></button>
+
+	<form data-role="page" id="home">
+		<h1>Paciente ID</h1>
+		<input type="text" id="Id_patient" autocomplete="off" placeholder="Identifiation . . ." ><p>	
+		
+		<h2>Vida basal previa</h2>
+		<p class="one" for="Nivel_de_amputacion">Nivel de amputacion</p>
+		<input type="text" name="Nivel_de_amputacion" id="Nivel_de_amputacion"  placeholder="Texto . . .">
+		<p class="one">Deambulacion previa</p>
+		<input type="number" min="0" max="1" onkeyup="if(this.value > 1) this.value = null;" onkeydown="if(this.value < 0) this.value = null;" id="Deambulacion_previa" placeholder="Digitos . . . Minimun value 0, and maximun value 1.">
+		<p class="one">Independiente o no</p>
+		<input type="number" min="0" max="1" onkeyup="if(this.value > 1) this.value = null;" onkeydown="if(this.value < 0) this.value = null;" id="Independiente_o_no" placeholder="Digitos . . .Minimun value 0, and maximun value 1."><p>
+		<p class="one">Vive solo</p>
+		<input type="number" min="0" max="1" onkeyup="if(this.value > 1) this.value = null;" onkeydown="if(this.value < 0) this.value = null;" id="Vive_solo" placeholder="Digitos . . .Minimun value 0, and maximun value 1."><p>
+		<p class="one">Ascensor</p>
+		<input type="number" min="0" max="1" onkeyup="if(this.value > 1) this.value = null;" onkeydown="if(this.value < 0) this.value = null;" id="Ascensor" placeholder="Digitos . . .Minimun value 0, and maximun value 1."><p>
+		<p class="one">Alteraciones de la vision</p>
+		<input type="number" min="0" max="1" onkeyup="if(this.value > 1) this.value = null;" onkeydown="if(this.value < 0) this.value = null;" id="Alteraciones_de_la_vision" placeholder="Digitos . . .Minimun value 0, and maximun value 1."><p>
+		<p class="one">Deterioro cognitivo</p>
+		<input type="number" min="0" max="1" onkeyup="if(this.value > 1) this.value = null;" onkeydown="if(this.value < 0) this.value = null;" id="Deterioro_cognitivo" placeholder="Digitos . . .Minimun value 0, and maximun value 1."><p>
+		
+		<h2>Estado general del paciente</h2>
+		<input type="text" id="Estado_general_del_paciente" placeholder="Texto . . ."><p>
+		
+		<h2>Grado de colaboracion</h2>
+		<input type="int" id="Grado_de_colaboracion" placeholder="Numeros . . ."><p>
+		
+		<h2>Miembros superiores</h2>
+		<p class="one">Deformidades</p>
+		<input type="int" id="M_S_Deformidades" placeholder="Texto . . ."><p>
+		<p class="one">Rango articular</p>
+		<input type="range" min="0" max="360"  class="slider" id="M_S_Rango_articular">
+		<p class="two">Value in degrees: <span id="M_S_Rango_articular_value"> º</span></p>
+		<p class="one">Balance muscular global</p>
+		<input type="range" min="1" max="5"  class="slider" id="M_S_Balance_muscular">
+		<p class="two">Value: <span id="M_S_Balance_muscular_value"></span></p>
+		<p class="one">Manos</p>
+		<input type="int" id="M_S_Manos" placeholder="Texto . . ."><p>
+		
+		<h2>Miembros inferiores</h2>
+		
+		<h3>No amputado</h3>
+		<p class="one">Funcionalidad</p>
+		<input type="int" id="M_I_No_Funcionalidad" placeholder="Texto . . ."><p>
+		<p class="one">Presencia de flexos</p>
+		<input type="number" min="0" max="1" onkeyup="if(this.value > 1) this.value = null;" onkeydown="if(this.value < 0) this.value = null;" id="M_I_No_Presencia_de_flexos" placeholder="Digitos . . .Minimun value 0, and maximun value 1."><p>
+		<p class="one">Presencia de dolor en articulaciones por artrosis</p>
+		<input type="number" min="0" max="1" onkeyup="if(this.value > 1) this.value = null;" onkeydown="if(this.value < 0) this.value = null;" id="M_I_No_Presencia_de_dolor_en_articulaciones_por_artrosis" placeholder="Digitos . . .Minimun value 0, and maximun value 1."><p>
+		<p class="one">Balance muscular</p>
+		<input type="range" min="1" max="5"  class="slider" id="M_I_No_Balance_muscular">
+		<p class="two">Value: <span id="M_I_No_Balance_muscular_value"></span></p>
+		<p class="one">Pulsos arteriales distales</p>
+		<input type="int" id="M_I_No_Pulsos_arteriales_distales" placeholder="Texto . . ."><p>
+		
+		<h3>Amputado</h3>
+		<p class="one">Nivel</p>
+		<input type="int" id="M_I_A_Nivel" placeholder="Texto . . ."><p>
+		<h4>Describir munon</h4>
+		<p class="one">Inspeccion</p>
+		<input type="int" id="M_I_A_Inspeccion" placeholder="Texto . . ."><p>
+		<p class="one">Conformacion del munon</p>
+		<input type="int" id="M_I_A_Conformacion_del_munon" placeholder="Texto . . ."><p>
+		<p class="one">Longitud transfemoral</p>
+		<input type="int" id="M_I_A_Longitud_transfemoral" placeholder="Numeros . . ."><p>
+		<p class="one">Longitud Transtibial</p>
+		<input type="int" id="M_I_A_Longitud_Transtibial" placeholder="Numeros . . ."><p>
+		<p class="one">Edema tipo Numeros</p>
+		<input type="int" id="M_I_A_Edema" placeholder="Numeros . . ."><p>
+		<p class="one">Presencia o no de espicula osea</p>
+		<input type="int" id="M_I_A_Presencia_espicula_osea" placeholder="Texto . . ."><p>
+		<p class="one">Actitud del munon</p>
+		<input type="int" id="M_I_A_Actitud_del_munon" placeholder="Texto . . ."><p>
+		<p class="one">Rese&ntildear cualquier hallazgo que nos llame la atencion en el munon</p>
+		<input type="int" id="M_I_A_Rasgos_anadibles" placeholder="Texto . . ."><p>
+		<h4>Rango articular</h4>
+		<p class="one">Transfemoral</p>
+		<input type="range" min="0" max="360"  class="slider" id="M_I_A_Rango_articular_transfemoral">
+		<p class="two">Value in degrees: <span id="M_I_A_Rango_articular_transfemoral_value"></span></p>
+		<p class="one">Transtibial</p>
+		<input type="range" min="0" max="360"  class="slider" id="M_I_A_Rango_articular_transtibial">
+		<p class="two">Value in degrees: <span id="M_I_A_Rango_articular_transtibial_value"></span></p>
+		<h4>Balance muscular</h4>
+		<p class="one">Transfemoral</p>
+		<input type="range" min="1" max="5"  class="slider" id="M_I_A_Balance_muscular_transfemoral">
+		<p class="two">Value: <span id="M_I_A_Balance_muscular_transfemoral_value"></span></p>
+		<p class="one">Transtibial</p>
+		<input type="range" min="1" max="5"  class="slider" id="M_I_A_Balance_muscular_transtibial">
+		<p class="two">Value: <span id="M_I_A_Balance_muscular_transtibial_value"></span></p>
+		<h4>Miembro fantasma</h4>
+		<input type="int" id="Miembro_fantasma" placeholder="Texto . . ."><p>
+		<h4>Valor equilibrio unipodal</h4>
+		<input type="int" id="Valor_equilibrion_unipodal" placeholder="Texto . . ."><p>
+		
+		<h2>Fecha de la sesion</h2>
+		<input type="date" id="Date" data-role="calendarpicker" data-input-format="%y/%d/%m" data-calendar-wide-point="xl"> 
+		
+		<br></br>
+		
+		
+		<div class="grouped_buttons" style="width:100%" >
+			<button type="submit" id= "button" class="button_group" style="width:50%; "><i class="fa fa-pencil">   Add</i></button> 
+			<button type="reset" class="button_group" value="Reset" style="width:50%; background-color: red;"><i class="fa fa-trash">     Clear</i></button>
+		</div>
+	</form>
+	
+	
+	
+	<script>
+	var slider1 = document.getElementById("M_S_Balance_muscular");
+	var output1 = document.getElementById("M_S_Balance_muscular_value");
+	output1.innerHTML = slider1.value;
+
+	slider1.oninput = function() {
+	  output1.innerHTML = this.value;
+	}
+	
+	var slider2 = document.getElementById("M_I_No_Balance_muscular");
+	var output2 = document.getElementById("M_I_No_Balance_muscular_value");
+	output2.innerHTML = slider2.value;
+
+	slider2.oninput = function() {
+	  output2.innerHTML = this.value;
+	}
+	
+	var slider3 = document.getElementById("M_I_A_Balance_muscular_transfemoral");
+	var output3 = document.getElementById("M_I_A_Balance_muscular_transfemoral_value");
+	output3.innerHTML = slider3.value;
+
+	slider3.oninput = function() {
+	  output3.innerHTML = this.value;
+	}
+	
+	var slider4 = document.getElementById("M_I_A_Balance_muscular_transtibial");
+	var output4 = document.getElementById("M_I_A_Balance_muscular_transtibial_value");
+	output4.innerHTML = slider4.value;
+
+	slider4.oninput = function() {
+	  output4.innerHTML = this.value;
+	}
+	
+	
+	
+	
+	var slider5 = document.getElementById("M_S_Rango_articular");
+	var output5 = document.getElementById("M_S_Rango_articular_value");
+	output5.innerHTML = slider5.value;
+
+	slider5.oninput = function() {
+	  output5.innerHTML = this.value;
+	}
+	
+	var slider6 = document.getElementById("M_I_A_Rango_articular_transfemoral");
+	var output6 = document.getElementById("M_I_A_Rango_articular_transfemoral_value");
+	output6.innerHTML = slider6.value;
+
+	slider6.oninput = function() {
+	  output6.innerHTML = this.value;
+	}
+	
+	var slider7 = document.getElementById("M_I_A_Rango_articular_transtibial");
+	var output7 = document.getElementById("M_I_A_Rango_articular_transtibial_value");
+	output7.innerHTML = slider7.value;
+
+	slider7.oninput = function() {
+	  output7.innerHTML = this.value;
+	}
+	
+	
+	</script>
+
+    <script>
+        $(document).ready(function(){
+            $("#button").click(function(){
+                var Id_patient= $("#Id_patient").val();
+				var Nivel_de_amputacion= $("#Nivel_de_amputacion").val();
+				var Deambulacion_previa= $("#Deambulacion_previa").val();
+				var Independiente_o_no= $("#Independiente_o_no").val();
+				var Vive_solo= $("#Vive_solo").val();
+				var Ascensor= $("#Ascensor").val();
+				var Alteraciones_de_la_vision= $("#Alteraciones_de_la_vision").val();
+				var Deterioro_cognitivo= $("#Deterioro_cognitivo").val();
+				var Estado_general_del_paciente= $("#Estado_general_del_paciente").val();
+				var Grado_de_colaboracion= $("#Grado_de_colaboracion").val();
+				var M_S_Deformidades= $("#M_S_Deformidades").val();
+				var M_S_Rango_articular= $("#M_S_Rango_articular").val();
+				var M_S_Balance_muscular= $("#M_S_Balance_muscular").val();
+				var M_S_Manos= $("#M_S_Manos").val();
+				var M_I_No_Funcionalidad= $("#M_I_No_Funcionalidad").val();
+				var M_I_No_Presencia_de_flexos= $("#M_I_No_Presencia_de_flexos").val();
+				var M_I_No_Presencia_de_dolor_en_articulaciones_por_artrosis= $("#M_I_No_Presencia_de_dolor_en_articulaciones_por_artrosis").val();
+				var M_I_No_Balance_muscular= $("#M_I_No_Balance_muscular").val();
+				var M_I_No_Pulsos_arteriales_distales= $("#M_I_No_Pulsos_arteriales_distales").val();
+				var M_I_A_Nivel= $("#M_I_A_Nivel").val();
+				var M_I_A_Inspeccion= $("#M_I_A_Inspeccion").val();
+				var M_I_A_Conformacion_del_munon= $("#M_I_A_Conformacion_del_munon").val();
+				var M_I_A_Longitud_transfemoral= $("#M_I_A_Longitud_transfemoral").val();
+				var M_I_A_Longitud_Transtibial= $("#M_I_A_Longitud_Transtibial").val();
+				var M_I_A_Edema= $("#M_I_A_Edema").val();
+				var M_I_A_Presencia_espicula_osea= $("#M_I_A_Presencia_espicula_osea").val();
+				var M_I_A_Rasgos_anadibles= $("#M_I_A_Rasgos_anadibles").val();
+				var M_I_A_Rango_articular_transfemoral= $("#M_I_A_Rango_articular_transfemoral").val();
+				var M_I_A_Rango_articular_transtibial= $("#M_I_A_Rango_articular_transtibial").val();
+				var M_I_A_Balance_muscular_transfemoral= $("#M_I_A_Balance_muscular_transfemoral").val();
+				var M_I_A_Balance_muscular_transtibial= $("#M_I_A_Balance_muscular_transtibial").val();
+				var Miembro_fantasma= $("#Miembro_fantasma").val();
+				var Valor_equilibrion_unipodal= $("#Valor_equilibrion_unipodal").val();
+				var Date= $("#Date").val();
+                $.ajax({
+                    url:'../PHP/insert.php',
+                    method:'POST',
+                    data:{
+                        Id_patient:Id_patient,
+						Nivel_de_amputacion:Nivel_de_amputacion,
+						Deambulacion_previa:Deambulacion_previa,
+						Independiente_o_no:Independiente_o_no,
+						Vive_solo:Vive_solo,
+						Ascensor:Ascensor,
+						Alteraciones_de_la_vision:Alteraciones_de_la_vision,
+						Deterioro_cognitivo:Deterioro_cognitivo,
+						Estado_general_del_paciente:Estado_general_del_paciente,
+						Grado_de_colaboracion:Grado_de_colaboracion,
+						M_S_Deformidades:M_S_Deformidades,
+						M_S_Rango_articular:M_S_Rango_articular,
+						M_S_Balance_muscular:M_S_Balance_muscular,
+						M_S_Manos:M_S_Manos,
+						M_I_No_Funcionalidad:M_I_No_Funcionalidad,
+						M_I_No_Presencia_de_flexos:M_I_No_Presencia_de_flexos,
+						M_I_No_Presencia_de_dolor_en_articulaciones_por_artrosis:M_I_No_Presencia_de_dolor_en_articulaciones_por_artrosis,
+						M_I_No_Balance_muscular:M_I_No_Balance_muscular,
+						M_I_No_Pulsos_arteriales_distales:M_I_No_Pulsos_arteriales_distales,
+						M_I_A_Nivel:M_I_A_Nivel,
+						M_I_A_Inspeccion:M_I_A_Inspeccion,
+						M_I_A_Conformacion_del_munon:M_I_A_Conformacion_del_munon,
+						M_I_A_Longitud_transfemoral:M_I_A_Longitud_transfemoral,
+						M_I_A_Longitud_Transtibial:M_I_A_Longitud_Transtibial,
+						M_I_A_Edema:M_I_A_Edema,
+						M_I_A_Presencia_espicula_osea:M_I_A_Presencia_espicula_osea,
+						M_I_A_Rasgos_anadibles:M_I_A_Rasgos_anadibles,
+						M_I_A_Rango_articular_transfemoral:M_I_A_Rango_articular_transfemoral,
+						M_I_A_Rango_articular_transtibial:M_I_A_Rango_articular_transtibial,
+						M_I_A_Balance_muscular_transfemoral:M_I_A_Balance_muscular_transfemoral,
+						M_I_A_Balance_muscular_transtibial:M_I_A_Balance_muscular_transtibial,
+						Miembro_fantasma:Miembro_fantasma,
+						Valor_equilibrion_unipodal:Valor_equilibrion_unipodal,
+						Date:Date
+                    },
+                   success:function(data){
+                       alert(data);
+                   }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+

@@ -1,0 +1,70 @@
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+	
+<style>
+.button {
+	box-sizing: border-box;	
+	border-color:  black;
+	width: 100%;
+	background-color: #008CBA;
+	color: white;
+	padding: 15px 32px;
+	border-radius: 12px;
+	text-align: center;
+	text-decoration: none;
+	display: block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-width: medium ;
+
+}
+h1 { color: #111; font-family: 'Open Sans Condensed', sans-serif; font-size: 48px; font-weight: 700; line-height: 10px; margin: 0 0 0; padding: 10px 10px; text-align: center;}
+h4 { color: #111; font-family: 'Open Sans Condensed', sans-serif; font-size: 38px; font-weight: 700; line-height: 10px; margin: 0 0 0; padding: 10px 10px; text-align: center;}
+</style>
+
+
+
+</head>
+<body>
+
+	<div data-role="page" id="page">
+		<header data-role="header">
+			<img src= "../IMAGES/HUS.jpg"
+			style ="top">
+			<h1>Formulario</h1>
+			<br></br>
+		</header>
+		
+		<main data-role="content" id="content">
+			<button type="submit" id="button_1" class="button">Añadir paciente</button><p>
+			<button type="submit" id="button_2" class="button">Busqueda de datos de paciente - Editar</button><p>
+			<button type="submit" id="button_3" class="button">Busqueda de pacientes por un valores concretos</button><p>
+			<button type="submit" id="button_4" class="button">Gráfica de paciente segun variable elegida</button><p>
+			<br></br>
+			<script type="text/javascript">
+				document.getElementById("button_1").onclick = function () {
+				location.href = "http://localhost/HUS_Project/HTML/index.html";
+							};   
+				document.getElementById("button_2").onclick = function () {
+				location.href = "http://localhost/HUS_Project/HTML/search-form.html";
+							};
+				document.getElementById("button_3").onclick = function () {
+				location.href = "http://localhost/HUS_Project/HTML/scouting.html";
+							}; 
+				document.getElementById("button_4").onclick = function () {
+				location.href = "http://localhost/HUS_Project/HTML/graphic.html";
+							};  			
+			</script>
+		</main>
+
+		<footer data-role="footer" id="footer">
+			<h4>Raul Lopez Gonzalez BI URJC &copy; 2020</h4>
+	</div>
+	  
+</body>
+</html>

@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<!--<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>-->
+	<!--<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>-->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>Scouting</title>
+
+	
+<style>
+
+.grouped_buttons {
+	
+	margin-bottom: 2px ; 
+} 
+
+
+.button_group {
+  display: block;
+  margin-bottom: 10px ; 
+  background-color: #2F4F4F;
+  border: 1px solid black; 
+  color: white; 
+  padding: 10px 24px; 
+  cursor: pointer; 
+  float: left; 
+  border-width: medium ;
+
+}
+.button_group:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+/* Add a background color on hover */
+.button_group:hover {
+  background-color: #DAA520;
+}
+
+
+
+output.value_input {
+	background-color:#3CBC8D;
+	color : white; 
+	display: none;
+	padding: 12px 20px; 
+	margin: 8px 0; 
+	border-style: solid;
+	border-color: black;
+	border-radius: 12px; 
+	border-width: medium ;
+	
+
+}
+.button_bt {
+	box-sizing: border-box;	
+	background-color: #008CBA;
+	border-color:  black;
+	color: white;
+	width:100%;
+    display:flex; 
+	padding: 15px 32px;
+	border-radius: 12px;
+	text-align: center;
+	text-decoration: none;
+	display: inline;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-width: medium ;
+
+}
+
+.button {
+	box-sizing: border-box;	
+	background-color: #008CBA;
+	border-color:  black;
+	width: 100%;
+	color: white;
+	padding: 15px 32px;
+	border-radius: 12px;
+	text-align: center;
+	text-decoration: none;
+	display: block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-width: medium ;
+
+}
+
+.button2 {
+	box-sizing: border-box;	
+	background-color: #f44336;
+	border-radius: 12px;
+	border-color:  black;
+	border-width: medium ;
+	color: white;	
+	float:right;	
+	padding: 15px 15px;
+	text-align: center;
+	text-decoration: none;
+	display: block;
+	font-size: 16px;
+	margin: 10px 10px;
+	cursor: pointer;
+	height:100px;
+    width:150px;
+}
+
+h2 { color: #111; font-family: 'Open Sans Condensed', sans-serif; font-size: 32px;  font-weight: 700; line-height: 32px; margin: 0 0 0; padding: 0 30px; text-align: center; text-transform: uppercase; 
+text-decoration: underline ;}
+
+h3 { color: #111; font-family: 'Open Sans Condensed', sans-serif; font-size: 24px; font-weight: 700; line-height: 24px; margin: 0 0 0; padding: 20px 30px;text-align: center; text-transform: uppercase; 
+text-decoration: underline ;}
+
+
+
+input[type="text"] {
+            
+			width:100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			box-sizing: border-box;
+			border-color:  black;
+			border-radius: 12px;
+			background-color: gray;
+			color: 	white;
+			border-width: medium ;
+        }
+		
+input[type="range"] {
+            
+			color: 	white;
+			
+        }
+		
+input[type="int"] {
+			
+			width:100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			box-sizing: border-box;
+			border-color:  black;
+			border-radius: 12px;	
+			background-color: gray;
+			color: 	white;
+			border-width: medium ;
+			
+				
+        }
+		
+input[type="number"] {
+			
+			width:100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			box-sizing: border-box;
+			border-color:  black;
+			border-radius: 12px;
+			background-color: gray;
+			color: 	white;
+			border-width: medium ;
+			-webkit-appearance: textfield;
+			-moz-appearance: textfield;
+			appearance: textfield;
+		
+        }
+		
+input[type="date"] {
+			
+			width:100%;
+			padding: 12px 20px;
+			margin: 8px 8px;
+			box-sizing: border-box;
+			border-color:  black;
+			border-radius: 12px;
+			background-color: gray;
+			color: 	white;
+			border-width: medium ;
+        }
+		
+td.ecwid-productBrowser-details-datePicker-box input {
+  font-size: 20px;
+}
+		
+input[type=number]::-webkit-inner-spin-button {
+  width: 300px;
+  height: 60px;
+}
+
+
+
+::placeholder {
+  color: white;
+  }
+		
+		
+.slider { -webkit-appearance: none;width: 100%;height: 25px;background: grey;border:  black;border-radius: 12px;border-width: medium ;outline: none;opacity: 1;-webkit-transition: .2s;transition: opacity .2s;
+}
+.slider:hover {opacity: 1.5;
+}
+.slider::-webkit-slider-thumb {-webkit-appearance: none;appearance: none;width: 25px;height: 25px;background: yellow; border-radius: 50%; border:  black;cursor: pointer;
+}
+.slider::-moz-range-thumb {width: 25px;height: 25px;border-radius: 50%; border:  black;background: yellow;cursor: pointer;
+}
+
+
+.first_input::-webkit-input-placeholder {
+    color: black;
+}
+
+
+.resultados{
+        width: 100%;
+		max-width:100%;
+		box-sizing: border-box;
+        position: relative;
+        display: block;
+        font-size: 14px;
+		padding: 12px 20px;
+		margin: 8px 8px;
+		border-color:  black;
+		border-radius: 12px;
+		background-color: gray;
+		color: 	white;
+		border-width: medium ;
+		resize: none;	
+		overflow: hidden;
+		
+    }
+	
+	
+.reset_button {
+font-size : 15px;
+height:40px;
+  display: block;
+  margin-bottom: 10px ; 
+  background-color: red;
+	border-radius: 12px;
+	border-color:  black;
+	border-width: medium ;
+  color: white;
+  padding: 10px 32px; 
+  cursor: pointer; 
+  float: left; 
+width:100%;
+}
+
+	
+
+</style>
+
+
+
+</head>
+<body>
+
+
+
+	<form data-role="top_page" id="top_page" >
+	<img src= "../IMAGES/HUS.jpg"		style ="left"><p>  
+			
+	<button onclick="window.location.href='http://localhost/HUS_Project/HTML/home.html';" style= "top; width: 150px; height: 70px; font-size : 20px;" type="button" class="button2"><i class="fa fa-home"></i> Home</button>
+	</form>
+	
+	
+	
+	
+	<h2>Vida basal previa</h2><p>
+
+	<button type="button" class="button_bt" id="Deambulacion_previa_bt" onclick="myFunction2()" >Deambulacion previa</button>
+	<input type="number" style="display: none;" min="0" max="1" onkeyup="if(this.value > 1) this.value = null;" onkeydown="if(this.value < 0) this.value = null;" id="Deambulacion_previa" placeholder="Digitos . . . Minimun value 0, and maximun value 1.">
+	<div class="grouped_buttons" style="display: none;" id="Deambulacion_previa_group_buttons" style="width:100%">
+	<button class="button_group" id="button_1" onclick = "consulta('Deambulacion_previa', '!=', 'Deambulacion_previa_form', 'Deambulacion_previa_resultados')" style="width:50%">Diferente</button>
+	<button class="button_group" id="button_2" onclick = "consulta('Deambulacion_previa', '=', 'Deambulacion_previa_form', 'Deambulacion_previa_resultados')" style="width:50%">Igual</button>
+	</div>
+	<form data-role="page_resultado" id="Deambulacion_previa_form" style="display: none">
+		<br></br>
+		<h2>Id pacientes</h2>
+		<textarea  id="Deambulacion_previa_resultados" class="resultados" readonly></textarea>
+		<button class="reset_button" onClick="window.location.reload();" ><i class="fa fa-refresh">     Reset</i></button>
+	</form>
+
+	<button type="button" class="button_bt" id="Independiente_o_no_bt" onclick="myFunction3()" >Independiente o no</button>
+	<input type="number" style="display: none;" min="0" max="1" onkeyup="if(this.value > 1) this.value = null;" onkeydown="if(this.value < 0) this.value = null;" id="Independiente_o_no" placeholder="Digitos . . .Minimun value 0, and maximun value 1.">
+	<div class="grouped_buttons" style="display: none;" id="Independiente_o_no_group_buttons" style="width:100%">
+	<button class="button_group" id="button_1" onclick = "consulta('Independiente_o_no', '!=', 'Independiente_o_no_form', 'Independiente_o_no_resultados')" style="width:50%">Diferente</button>
+	<button class="button_group" id="button_2" onclick = "consulta('Independiente_o_no', '=', 'Independiente_o_no_form', 'Independiente_o_no_resultados')" style="width:50%">Igual</button>
+	</div>
+	<form data-role="page_resultado" id="Independiente_o_no_form" style="display: none">
+		<br></br>
+		<h2>Id pacientes</h2>
+		<textarea  id="Independiente_o_no_resultados" class="resultados" readonly></textarea>
+		<button class="reset_button" onClick="window.location.reload();"  ><i class="fa fa-refresh">     Reset</i></button>
+	</form>
+	
+	<button type="button" class="button_bt" id="Vive_solo_bt" onclick="myFunction4()" >Vive solo</button>
+	<input type="number" style="display: none;" min="0" max="1" onkeyup="if(this.value > 1) this.value = null;" onkeydown="if(this.value < 0) this.value = null;" id="Vive_solo" placeholder="Digitos . . .Minimun value 0, and maximun value 1."><p>
+	<div class="grouped_buttons" style="display: none;" id="Vive_solo_group_buttons" style="width:100%">
+	<button class="button_group" id="button_1" onclick = "consulta('Vive_solo', '!=', 'Vive_solo_form', 'Vive_solo_resultados')" style="width:50%">Diferente</button>
+	<button class="button_group" id="button_2" onclick = "consulta('Vive_solo', '=', 'Vive_solo_form', 'Vive_solo_resultados')" style="width:50%">Igual</button>
+	</div>
+	<form data-role="page_resultado" id="Vive_solo_form" style="display: none">
+		<br></br>
+		<h2>Id pacientes</h2>
+		<textarea  id="Vive_solo_resultados" class="resultados" readonly></textarea>
+		<button class="reset_button" onClick="window.location.reload();"  ><i class="fa fa-refresh">     Reset</i></button>
+	</form>
+	
+	<button type="button" class="button_bt" id="Ascensor_bt" onclick="myFunction5()" >Ascensor</button>
+	<input type="number" style="display: none;" min="0" max="1" onkeyup="if(this.value > 1) this.value = null;" onkeydown="if(this.value < 0) this.value = null;" id="Ascensor" placeholder="Digitos . . .Minimun value 0, and maximun value 1."><p>
+	<div class="grouped_buttons" style="display: none;" id="Ascensor_group_buttons" style="width:100%">
+	<button class="button_group" id="button_1" onclick = "consulta('Ascensor', '!=', 'Ascensor_form', 'Ascensor_resultados')" style="width:50%">Diferente</button>
+	<button class="button_group" id="button_2" onclick = "consulta('Ascensor', '=', 'Ascensor_form', 'Ascensor_resultados')" style="width:50%">Igual</button>
+	</div>
+	<form data-role="page_resultado" id="Ascensor_form" style="display: none">
+		<br></br>
+		<h2>Id pacientes</h2>
+		<textarea  id="Ascensor_resultados" class="resultados" readonly></textarea>
+		<button class="reset_button" onClick="window.location.reload();"  ><i class="fa fa-refresh">     Reset</i></button>
+	</form>
+	
+	<button type="button" class="button_bt" id="Alteraciones_de_la_vision_bt" onclick="myFunction6()" >Alteraciones de la vision</button>
+	<input type="number" style="display: none;" min="0" max="1" onkeyup="if(this.value > 1) this.value = null;" onkeydown="if(this.value < 0) this.value = null;" id="Alteraciones_de_la_vision" placeholder="Digitos . . .Minimun value 0, and maximun value 1."><p>
+	<div class="grouped_buttons" style="display: none;" id="Alteraciones_de_la_vision_group_buttons" style="width:100%">
+	<button class="button_group" id="button_1" onclick = "consulta('Alteraciones_de_la_vision', '!=', 'Alteraciones_de_la_vision_form', 'Alteraciones_de_la_vision_resultados')" style="width:50%">Diferente</button>
+	<button class="button_group" id="button_2" onclick = "consulta('Alteraciones_de_la_vision', '=', 'Alteraciones_de_la_vision_form', 'Alteraciones_de_la_vision_resultados')" style="width:50%">Igual</button>
+	</div>
+	<form data-role="page_resultado" id="Alteraciones_de_la_vision_form" style="display: none">
+		<br></br>
+		<h2>Id pacientes</h2>
+		<textarea  id="Alteraciones_de_la_vision_resultados" class="resultados" readonly></textarea>
+		<button class="reset_button" onClick="window.location.reload();" ><i class="fa fa-refresh">     Reset</i></button>
+	</form>
+	
+	<button type="button" class="button_bt" id="Deterioro_cognitivo_bt" onclick="myFunction7()" >Deterioro cognitivo</button>
+	<input type="number" style="display: none;" min="0" max="1" onkeyup="if(this.value > 1) this.value = null;" onkeydown="if(this.value < 0) this.value = null;" id="Deterioro_cognitivo" placeholder="Digitos . . .Minimun value 0, and maximun value 1."><p>
+	<div class="grouped_buttons" style="display: none;" id="Deterioro_cognitivo_group_buttons" style="width:100%">
+	<button class="button_group" id="button_1" onclick = "consulta('Deterioro_cognitivo', '!=', 'Deterioro_cognitivo_form', 'Deterioro_cognitivo_resultados')" style="width:50%">Diferente</button>
+	<button class="button_group" id="button_2" onclick = "consulta('Deterioro_cognitivo', '=', 'Deterioro_cognitivo_form', 'Deterioro_cognitivo_resultados')" style="width:50%">Igual</button>
+	</div>
+	<form data-role="page_resultado" id="Deterioro_cognitivo_form" style="display: none">
+		<br></br>
+		<h2>Id pacientes</h2>
+		<textarea  id="Deterioro_cognitivo_resultados" class="resultados" readonly></textarea>
+		<button class="reset_button" onClick="window.location.reload();" ><i class="fa fa-refresh">     Reset</i></button>
+	</form>
+	
+	<!--  -->
+
+	<h2>Grado de colaboracion</h2><p>
+	<button type="button" class="button_bt" id="Grado_de_colaboracion_bt" style="width: 100%" onclick="myFunction9()" >Grado de colaboracion</button>
+	<input type="int" style="display: none;" id="Grado_de_colaboracion" placeholder="Numeros . . .">
+	<div class="grouped_buttons" style="display: none;" id="Grado_de_colaboracion_group_buttons" style="width:100%">
+	<button class="button_group" id="button_1" onclick = "consulta('Grado_de_colaboracion', '<', 'Grado_de_colaboracion_form', 'Grado_de_colaboracion_resultados')"  style="width:33.3%">Menor al valor</button>
+	<button class="button_group" id="button_2" onclick = "consulta('Grado_de_colaboracion', '=', 'Grado_de_colaboracion_form', 'Grado_de_colaboracion_resultados')"  style="width:33.3%">Igual</button>
+	<button class="button_group" id="button_3" onclick = "consulta('Grado_de_colaboracion', '>', 'Grado_de_colaboracion_form', 'Grado_de_colaboracion_resultados')"  style="width:33.3%">Mayor al valor</button>	
+	</div>
+	<form data-role="page_resultado" id="Grado_de_colaboracion_form" style="display: none">
+		<br></br>
+		<h2>Id pacientes</h2>
+		<textarea  id="Grado_de_colaboracion_resultados" class="resultados" readonly></textarea>
+		<button class="reset_button" onClick="window.location.reload();" ><i class="fa fa-refresh">     Reset</i></button>
+	</form>
+
+	<h2>Miembros superiores</h2><p>
+	<button type="button" class="button_bt" id="M_S_Rango_articular_bt" onclick="myFunction11()" >Rango articular</button>
+	<input type="range" style="display: none;" min="0" max="360"  class="slider" id="M_S_Rango_articular" oninput="value_input.value = this.value">
+	<output class="value_input" id="M_S_Rango_articular_value"></output>
+	<div class="grouped_buttons" style="display: none;" id="M_S_Rango_articular_group_buttons" style="width:100%">
+	<button class="button_group" id="button_1" onclick = "consulta('M_S_Rango_articular', '<', 'M_S_Rango_articular_form', 'M_S_Rango_articular_resultados')"  style="width:33.3%">Menor al valor</button>
+	<button class="button_group" id="button_2" onclick = "consulta('M_S_Rango_articular', '=', 'M_S_Rango_articular_form', 'M_S_Rango_articular_resultados')"  style="width:33.3%">Igual</button>
+	<button class="button_group" id="button_3" onclick = "consulta('M_S_Rango_articular', '>', 'M_S_Rango_articular_form', 'M_S_Rango_articular_resultados')"  style="width:33.3%">Mayor al valor</button>	
+	</div>
+	<form data-role="page_resultado" id="M_S_Rango_articular_form" style="display: none">
+		<br></br>
+		<h2>Id pacientes</h2>
+		<textarea  id="M_S_Rango_articular_resultados" class="resultados" readonly></textarea>
+		<button class="reset_button" onClick="window.location.reload();"  ><i class="fa fa-refresh">     Reset</i></button>
+	</form>
+	
+	<button type="button" class="button_bt" id="M_S_Balance_muscular_bt" onclick="myFunction12()" >Balance muscular</button>
+	<input type="range" style="display: none;" min="1" max="5"  class="slider" id="M_S_Balance_muscular">
+	<output class="value_input" id="M_S_Balance_muscular_value"></output>
+	<div class="grouped_buttons" style="display: none;" id="M_S_Balance_muscular_group_buttons" style="width:100%">
+	<button class="button_group" id="button_1" onclick = "consulta('M_S_Balance_muscular', '<', 'M_S_Balance_muscular_form', 'M_S_Balance_muscular_resultados')"  style="width:33.3%">Menor al valor</button>
+	<button class="button_group" id="button_2" onclick = "consulta('M_S_Balance_muscular', '=', 'M_S_Balance_muscular_form', 'M_S_Balance_muscular_resultados')"  style="width:33.3%">Igual</button>
+	<button class="button_group" id="button_3" onclick = "consulta('M_S_Balance_muscular', '>', 'M_S_Balance_muscular_form', 'M_S_Balance_muscular_resultados')"  style="width:33.3%">Mayor al valor</button>	
+	</div>
+	<form data-role="page_resultado" id="M_S_Balance_muscular_form" style="display: none">
+		<br></br>
+		<h2>Id pacientes</h2>
+		<textarea  id="M_S_Balance_muscular_resultados" class="resultados" readonly></textarea>
+		<button class="reset_button" onClick="window.location.reload();"  ><i class="fa fa-refresh">     Reset</i></button>
+	</form>
+	
+	<!--  -->
+
+	<h2>Miembros inferiores</h2><p>
+	<h3>No amputado</h3><p>
+	<button type="button" class="button_bt" id="M_I_No_Presencia_de_flexos_bt" onclick="myFunction15()">Presencia de flexos</button>
+	<input type="number" style="display: none;" min="0" max="1" onkeyup="if(this.value > 1) this.value = null;" onkeydown="if(this.value < 0) this.value = null;" id="M_I_No_Presencia_de_flexos" placeholder="Digitos . . .Minimun value 0, and maximun value 1.">
+	<div class="grouped_buttons" style="display: none;" id="M_I_No_Presencia_de_flexos_group_buttons" style="width:100%">
+	<button class="button_group" id="button_1" onclick = "consulta('M_I_No_Presencia_de_flexos', '!=', 'M_I_No_Presencia_de_flexos_form', 'M_I_No_Presencia_de_flexos_resultados')" style="width:50%">Diferente</button>
+	<button class="button_group" id="button_2" onclick = "consulta('M_I_No_Presencia_de_flexos', '=', 'M_I_No_Presencia_de_flexos_form', 'M_I_No_Presencia_de_flexos_resultados')" style="width:50%">Igual</button>
+	</div>
+	<form data-role="page_resultado" id="M_I_No_Presencia_de_flexos_form" style="display: none">
+		<br></br>
+		<h2>Id pacientes</h2>
+		<textarea  id="M_I_No_Presencia_de_flexos_resultados" class="resultados" readonly></textarea>
+		<button class="reset_button" onClick="window.location.reload();" ><i class="fa fa-refresh">     Reset</i></button>
+	</form>
+	
+	<button type="button" class="button_bt" id="M_I_No_Presencia_de_dolor_en_articulaciones_por_artrosis_bt" onclick="myFunction16()">Presencia de dolor en articulaciones por artrosis</button>
+	<input type="number" style="display: none;" min="0" max="1" onkeyup="if(this.value > 1) this.value = null;" onkeydown="if(this.value < 0) this.value = null;" id="M_I_No_Presencia_de_dolor_en_articulaciones_por_artrosis" placeholder="Digitos . . .Minimun value 0, and maximun value 1.">
+	<div class="grouped_buttons" style="display: none;" id="M_I_No_Presencia_de_dolor_en_articulaciones_por_artrosis_group_buttons" style="width:100%">
+	<button class="button_group" id="button_1" onclick = "consulta('M_I_No_Presencia_de_dolor_en_articulaciones_por_artrosis', '!=', 'M_I_No_Presencia_de_dolor_en_articulaciones_por_artrosis_form', 'M_I_No_Presencia_de_dolor_en_articulaciones_por_artrosis_resultados')" style="width:50%">Diferente</button>
+	<button class="button_group" id="button_2" onclick = "consulta('M_I_No_Presencia_de_dolor_en_articulaciones_por_artrosis', '=', 'M_I_No_Presencia_de_dolor_en_articulaciones_por_artrosis_form', 'M_I_No_Presencia_de_dolor_en_articulaciones_por_artrosis_resultados')" style="width:50%">Igual</button>
+	</div>
+	<form data-role="page_resultado" id="M_I_No_Presencia_de_dolor_en_articulaciones_por_artrosis_form" style="display: none">
+		<br></br>
+		<h2>Id pacientes</h2>
+		<textarea  id="M_I_No_Presencia_de_dolor_en_articulaciones_por_artrosis_resultados" class="resultados" readonly></textarea>
+		<button class="reset_button" onClick="window.location.reload();"  ><i class="fa fa-refresh">     Reset</i></button>
+	</form>
+	
+	<button type="button" class="button_bt" id="M_I_No_Balance_muscular_bt" onclick="myFunction17()">Balance muscular</button>
+	<input type="range" style="display: none;" min="1" max="5"  class="slider" id="M_I_No_Balance_muscular">
+	<output class="value_input" id="M_I_No_Balance_muscular_value"></output>
+	<div class="grouped_buttons" style="display: none;" id="M_I_No_Balance_muscular_group_buttons" style="width:100%">
+	<button class="button_group" id="button_1" onclick = "consulta('M_I_No_Balance_muscular', '<', 'M_I_No_Balance_muscular_form', 'M_I_No_Balance_muscular_resultados')"  style="width:33.3%">Menor al valor</button>
+	<button class="button_group" id="button_2" onclick = "consulta('M_I_No_Balance_muscular', '=', 'M_I_No_Balance_muscular_form', 'M_I_No_Balance_muscular_resultados')"  style="width:33.3%">Igual</button>
+	<button class="button_group" id="button_3" onclick = "consulta('M_I_No_Balance_muscular', '>', 'M_I_No_Balance_muscular_form', 'M_I_No_Balance_muscular_resultados')"  style="width:33.3%">Mayor al valor</button>	
+	</div>
+	<form data-role="page_resultado" id="M_I_No_Balance_muscular_form" style="display: none">
+		<br></br>
+		<h2>Id pacientes</h2>
+		<textarea  id="M_I_No_Balance_muscular_resultados" class="resultados" readonly></textarea>
+		<button class="reset_button" onClick="window.location.reload();"  ><i class="fa fa-refresh">     Reset</i></button>
+	</form>
+	
+	<!--  -->
+	
+	<h3>Amputado</h3><p>
+	<button type="button" class="button_bt" id="M_I_A_Longitud_transfemoral_bt" onclick="myFunction22()">Longitud transfemoral</button>
+	<input type="int"  style="display: none;" id="M_I_A_Longitud_transfemoral" placeholder="Numeros . . .">
+	<div class="grouped_buttons" style="display: none;" id="M_I_A_Longitud_transfemoral_group_buttons" style="width:100%">
+	<button class="button_group" id="button_1" onclick = "consulta('M_I_A_Longitud_transfemoral', '<', 'M_I_A_Longitud_transfemoral_form', 'M_I_A_Longitud_transfemoral_resultados')"  style="width:33.3%">Menor al valor</button>
+	<button class="button_group" id="button_2" onclick = "consulta('M_I_A_Longitud_transfemoral', '=', 'M_I_A_Longitud_transfemoral_form', 'M_I_A_Longitud_transfemoral_resultados')"  style="width:33.3%">Igual</button>
+	<button class="button_group" id="button_3" onclick = "consulta('M_I_A_Longitud_transfemoral', '>', 'M_I_A_Longitud_transfemoral_form', 'M_I_A_Longitud_transfemoral_resultados')"  style="width:33.3%">Mayor al valor</button>	
+	</div>
+	<form data-role="page_resultado" id="M_I_A_Longitud_transfemoral_form" style="display: none">
+		<br></br>
+		<h2>Id pacientes</h2>
+		<textarea  id="M_I_A_Longitud_transfemoral_resultados" class="resultados" readonly></textarea>
+		<button class="reset_button" onClick="window.location.reload();"  ><i class="fa fa-refresh">     Reset</i></button>
+	</form>
+	
+	<button type="button" class="button_bt" id="M_I_A_Longitud_Transtibial_bt" onclick="myFunction23()">Longitud Transtibial</button>
+	<input type="int" style="display: none;" id="M_I_A_Longitud_Transtibial" placeholder="Numeros . . .">
+	<div class="grouped_buttons" style="display: none;" id="M_I_A_Longitud_Transtibial_group_buttons" style="width:100%">
+	<button class="button_group" id="button_1" onclick = "consulta('M_I_A_Longitud_Transtibial', '<', 'M_I_A_Longitud_Transtibial_form', 'M_I_A_Longitud_Transtibial_resultados')"  style="width:33.3%">Menor al valor</button>
+	<button class="button_group" id="button_2" onclick = "consulta('M_I_A_Longitud_Transtibial', '=', 'M_I_A_Longitud_Transtibial_form', 'M_I_A_Longitud_Transtibial_resultados')"  style="width:33.3%">Igual</button>
+	<button class="button_group" id="button_3" onclick = "consulta('M_I_A_Longitud_Transtibial', '>', 'M_I_A_Longitud_Transtibial_form', 'M_I_A_Longitud_Transtibial_resultados')"  style="width:33.3%">Mayor al valor</button>	
+	</div>
+	<form data-role="page_resultado" id="M_I_A_Longitud_Transtibial_form" style="display: none">
+		<br></br>
+		<h2>Id pacientes</h2>
+		<textarea  id="M_I_A_Longitud_Transtibial_resultados" class="resultados" readonly></textarea>
+		<button class="reset_button" onClick="window.location.reload();"  ><i class="fa fa-refresh">     Reset</i></button>
+	</form>
+	
+	<button type="button" class="button_bt" id="M_I_A_Edema_bt" onclick="myFunction24()">Edema</button>
+	<input type="int" style="display: none;" id="M_I_A_Edema" placeholder="Numeros . . .">
+	<div class="grouped_buttons" style="display: none;" id="M_I_A_Edema_group_buttons" style="width:100%">
+	<button class="button_group" id="button_1" onclick = "consulta('M_I_A_Edema', '<', 'M_I_A_Edema_form', 'M_I_A_Edema_resultados')"  style="width:33.3%">Menor al valor</button>
+	<button class="button_group" id="button_2" onclick = "consulta('M_I_A_Edema', '=', 'M_I_A_Edema_form', 'M_I_A_Edema_resultados')"  style="width:33.3%">Igual</button>
+	<button class="button_group" id="button_3" onclick = "consulta('M_I_A_Edema', '>', 'M_I_A_Edema_form', 'M_I_A_Edema_resultados')"  style="width:33.3%">Mayor al valor</button>	
+	</div>
+	<form data-role="page_resultado" id="M_I_A_Edema_form" style="display: none">
+		<br></br>
+		<h2>Id pacientes</h2>
+		<textarea  id="M_I_A_Edema_resultados" class="resultados" readonly></textarea>
+		<button class="reset_button" onClick="window.location.reload();"  ><i class="fa fa-refresh">     Reset</i></button>
+	</form>
+	
+	<button type="button" class="button_bt" id="M_I_A_Rango_articular_transfemoral_bt" onclick="myFunction28()">Rango articular Transfemoral</button>
+	<input type="range" style="display: none;" min="0" max="360"  class="slider" id="M_I_A_Rango_articular_transfemoral">
+	<output class="value_input" id="M_I_A_Rango_articular_transfemoral_value"></output>
+	<div class="grouped_buttons" style="display: none;" id="M_I_A_Rango_articular_transfemoral_group_buttons" style="width:100%">
+	<button class="button_group" id="button_1" onclick = "consulta('M_I_A_Rango_articular_transfemoral', '<', 'M_I_A_Rango_articular_transfemoral_form', 'M_I_A_Rango_articular_transfemoral_resultados')"  style="width:33.3%">Menor al valor</button>
+	<button class="button_group" id="button_2" onclick = "consulta('M_I_A_Rango_articular_transfemoral', '=', 'M_I_A_Rango_articular_transfemoral_form', 'M_I_A_Rango_articular_transfemoral_resultados')"  style="width:33.3%">Igual</button>
+	<button class="button_group" id="button_3" onclick = "consulta('M_I_A_Rango_articular_transfemoral', '>', 'M_I_A_Rango_articular_transfemoral_form', 'M_I_A_Rango_articular_transfemoral_resultados')"  style="width:33.3%">Mayor al valor</button>	
+	</div>
+	<form data-role="page_resultado" id="M_I_A_Rango_articular_transfemoral_form" style="display: none">
+		<br></br>
+		<h2>Id pacientes</h2>
+		<textarea  id="M_I_A_Rango_articular_transfemoral_resultados" class="resultados" readonly></textarea>
+		<button class="reset_button" onClick="window.location.reload();"  ><i class="fa fa-refresh">     Reset</i></button>
+	</form>
+	
+	<button type="button" class="button_bt" id="M_I_A_Rango_articular_transtibial_bt" onclick="myFunction29()">Rango articular Transtibial</button>
+	<input type="range" style="display: none;" min="0" max="360"  class="slider" id="M_I_A_Rango_articular_transtibial">
+	<output class="value_input" id="M_I_A_Rango_articular_transtibial_value"></output>
+	<div class="grouped_buttons" style="display: none;" id="M_I_A_Rango_articular_transtibial_buttons" style="width:100%">
+	<button class="button_group" id="button_1" onclick = "consulta('M_I_A_Rango_articular_transtibial', '<', 'M_I_A_Rango_articular_transtibial_form', 'M_I_A_Rango_articular_transtibial_resultados')"  style="width:33.3%">Menor al valor</button>
+	<button class="button_group" id="button_2" onclick = "consulta('M_I_A_Rango_articular_transtibial', '=', 'M_I_A_Rango_articular_transtibial_form', 'M_I_A_Rango_articular_transtibial_resultados')"  style="width:33.3%">Igual</button>
+	<button class="button_group" id="button_3" onclick = "consulta('M_I_A_Rango_articular_transtibial', '>', 'M_I_A_Rango_articular_transtibial_form', 'M_I_A_Rango_articular_transtibial_resultados')"  style="width:33.3%">Mayor al valor</button>	
+	</div>
+	<form data-role="page_resultado" id="M_I_A_Rango_articular_transtibial_form" style="display: none">
+		<br></br>
+		<h2>Id pacientes</h2>
+		<textarea  id="M_I_A_Rango_articular_transtibial_resultados" class="resultados" readonly></textarea>
+		<button class="reset_button" onClick="window.location.reload();"  ><i class="fa fa-refresh">     Reset</i></button>
+	</form>
+	
+	<button type="button" class="button_bt" id="M_I_A_Balance_muscular_transfemoral_bt" onclick="myFunction30()">Balance muscular Transfemoral</button>
+	<input type="range" style="display: none;" min="1" max="5"  class="slider" id="M_I_A_Balance_muscular_transfemoral">
+	<output class="value_input" id="M_I_A_Balance_muscular_transfemoral_value"></output>
+	<div class="grouped_buttons" style="display: none;" id="M_I_A_Balance_muscular_transfemoral_group_buttons" style="width:100%">
+	<button class="button_group" id="button_1" onclick = "consulta('M_I_A_Balance_muscular_transfemoral', '<', 'M_I_A_Balance_muscular_transfemoral_form', 'M_I_A_Balance_muscular_transfemoral_resultados')"  style="width:33.3%">Menor al valor</button>
+	<button class="button_group" id="button_2" onclick = "consulta('M_I_A_Balance_muscular_transfemoral', '=', 'M_I_A_Balance_muscular_transfemoral_form', 'M_I_A_Balance_muscular_transfemoral_resultados')"  style="width:33.3%">Igual</button>
+	<button class="button_group" id="button_3" onclick = "consulta('M_I_A_Balance_muscular_transfemoral', '>', 'M_I_A_Balance_muscular_transfemoral_form', 'M_I_A_Balance_muscular_transfemoral_resultados')"  style="width:33.3%">Mayor al valor</button>	
+	</div>
+	<form data-role="page_resultado" id="M_I_A_Balance_muscular_transfemoral_form" style="display: none">
+		<br></br>
+		<h2>Id pacientes</h2>
+		<textarea  id="M_I_A_Balance_muscular_transfemoral_resultados" class="resultados" readonly></textarea>
+		<button class="reset_button" onClick="window.location.reload();"  ><i class="fa fa-refresh">     Reset</i></button>
+	</form>
+	
+	<button type="button" class="button_bt" id="M_I_A_Balance_muscular_transtibial_bt" onclick="myFunction31()">Balance muscular Transtibial</button>
+	<input type="range" style="display: none;" min="1" max="5"  class="slider" id="M_I_A_Balance_muscular_transtibial">
+	<output class="value_input" id="M_I_A_Balance_muscular_transtibial_value"></output>
+	<div class="grouped_buttons" style="display: none;" id="M_I_A_Balance_muscular_transtibial_group_buttons" style="width:100%">
+	<button class="button_group" id="button_1" onclick = "consulta('M_I_A_Balance_muscular_transtibial', '<', 'M_I_A_Balance_muscular_transtibial_form', 'M_I_A_Balance_muscular_transtibial_resultados')"  style="width:33.3%">Menor al valor</button>
+	<button class="button_group" id="button_2" onclick = "consulta('M_I_A_Balance_muscular_transtibial', '=', 'M_I_A_Balance_muscular_transtibial_form', 'M_I_A_Balance_muscular_transtibial_resultados')"  style="width:33.3%">Igual</button>
+	<button class="button_group" id="button_3" onclick = "consulta('M_I_A_Balance_muscular_transtibial', '>', 'M_I_A_Balance_muscular_transtibial_form', 'M_I_A_Balance_muscular_transtibial_resultados')"  style="width:33.3%">Mayor al valor</button>	
+	</div>
+	<form data-role="page_resultado" id="M_I_A_Balance_muscular_transtibial_form" style="display: none">
+		<br></br>
+		<h2>Id pacientes</h2>
+		<textarea  id="M_I_A_Balance_muscular_transtibial_resultados" class="resultados" readonly></textarea>
+		<button class="reset_button" onClick="window.location.reload();" ><i class="fa fa-refresh">     Reset</i></button>
+	</form>	
+	
+	
+</body>
+
+
+<script type="text/javascript">
+
+	function auto_grow(element) {
+		var height_scroll = parseInt(element.scrollHeight) + 20;
+		element.style.height = (height_scroll.toString())+"px";
+	}
+  
+</script>
+
+<script type="text/javascript">
+
+	function consulta(elemento, simbolo, forma, textoarea){
+			var valor = document.getElementById(elemento).value;     
+			$.ajax({
+				url:'../PHP/scouting_example.php',
+				method:'POST',
+				data:{
+					valor:valor ,
+					variable : elemento,
+					simbolo: simbolo	
+				}
+			})
+			.done(function(eco){
+			  var x = document.getElementById(forma);
+			  if (x.style.display === "none") {x.style.display = "block";} else {x.style.display = "none";}
+			  document.getElementById(textoarea).value = eco;
+			  var element = document.getElementById(textoarea);
+			  auto_grow(element); 
+			});
+	}
+</script>
+
+
+
+<script>
+	function myFunction2() { var x = document.getElementById("Deambulacion_previa");
+	var a = document.getElementById("Deambulacion_previa_group_buttons");
+	  if (x.style.display === "none") {x.style.display = "block";} else {x.style.display = "none";}
+	  if (a.style.display === "none") {a.style.display = "block";} else {a.style.display = "none";}
+	}
+	function myFunction3() {var x = document.getElementById("Independiente_o_no");
+	  var a = document.getElementById("Independiente_o_no_group_buttons");
+	  if (x.style.display === "none") {x.style.display = "block";} else {x.style.display = "none";}
+	  if (a.style.display === "none") {a.style.display = "block";} else {a.style.display = "none";}
+	}
+	function myFunction4() {var x = document.getElementById("Vive_solo");
+	  var a = document.getElementById("Vive_solo_group_buttons");
+	  if (x.style.display === "none") {x.style.display = "block";} else {x.style.display = "none";}
+	  if (a.style.display === "none") {a.style.display = "block";} else {a.style.display = "none";}
+	}
+	function myFunction5() {var x = document.getElementById("Ascensor");
+	  var a = document.getElementById("Ascensor_group_buttons");
+	  if (x.style.display === "none") {x.style.display = "block";} else {x.style.display = "none";}
+	  if (a.style.display === "none") {a.style.display = "block";} else {a.style.display = "none";}
+	}
+	function myFunction6() {var x = document.getElementById("Alteraciones_de_la_vision");
+	  var a = document.getElementById("Alteraciones_de_la_vision_group_buttons");
+	  if (x.style.display === "none") {x.style.display = "block";} else {x.style.display = "none";}
+	  if (a.style.display === "none") {a.style.display = "block";} else {a.style.display = "none";}
+	}   
+	function myFunction7() {var x = document.getElementById("Deterioro_cognitivo");
+	  var a = document.getElementById("Deterioro_cognitivo_group_buttons");
+	  if (x.style.display === "none") {x.style.display = "block";} else {x.style.display = "none";}
+	  if (a.style.display === "none") {a.style.display = "block";} else {a.style.display = "none";}
+	}
+	
+	
+
+	function myFunction9() {var x = document.getElementById("Grado_de_colaboracion");
+	  var a = document.getElementById("Grado_de_colaboracion_group_buttons");
+	  if (x.style.display === "none") {x.style.display = "block";} else {x.style.display = "none";}
+	  if (a.style.display === "none") {a.style.display = "block";} else {a.style.display = "none";}
+	}
+	function myFunction11() {var x = document.getElementById("M_S_Rango_articular"); var y = document.getElementById("M_S_Rango_articular_value"); 
+	  var a = document.getElementById("M_S_Rango_articular_group_buttons");
+	  if (x.style.display === "none") {x.style.display = "block";} else {x.style.display = "none";}
+	  if (y.style.display === "none") {y.style.display = "block";} else {y.style.display = "none";}
+	  if (a.style.display === "none") {a.style.display = "block";} else {a.style.display = "none";}
+	}
+	function myFunction12() {var x = document.getElementById("M_S_Balance_muscular"); var y = document.getElementById("M_S_Balance_muscular_value");
+	  var a = document.getElementById("M_S_Balance_muscular_group_buttons");
+	  if (x.style.display === "none") {x.style.display = "block";} else {x.style.display = "none";}
+	  if (y.style.display === "none") {y.style.display = "block";} else {y.style.display = "none";}
+	  if (a.style.display === "none") {a.style.display = "block";} else {a.style.display = "none";}
+	}
+	function myFunction15() {var x = document.getElementById("M_I_No_Presencia_de_flexos");
+	  var a = document.getElementById("M_I_No_Presencia_de_flexos_group_buttons");
+	  if (x.style.display === "none") {x.style.display = "block";} else {x.style.display = "none";}
+	  if (a.style.display === "none") {a.style.display = "block";} else {a.style.display = "none";}
+	}
+	function myFunction16() {var x = document.getElementById("M_I_No_Presencia_de_dolor_en_articulaciones_por_artrosis");
+	  var a = document.getElementById("M_I_No_Presencia_de_dolor_en_articulaciones_por_artrosis_group_buttons");
+	  if (x.style.display === "none") {x.style.display = "block";} else {x.style.display = "none";}
+	  if (a.style.display === "none") {a.style.display = "block";} else {a.style.display = "none";}
+	}
+	function myFunction17() {var x = document.getElementById("M_I_No_Balance_muscular"); var y = document.getElementById("M_I_No_Balance_muscular_value");
+	  var a = document.getElementById("M_I_No_Balance_muscular_group_buttons");
+	  if (x.style.display === "none") {x.style.display = "block";} else {x.style.display = "none";}
+	  if (y.style.display === "none") {y.style.display = "block";} else {y.style.display = "none";}
+	  if (a.style.display === "none") {a.style.display = "block";} else {a.style.display = "none";}
+	}
+
+	function myFunction22() {var x = document.getElementById("M_I_A_Longitud_transfemoral");
+	  var a = document.getElementById("M_I_A_Longitud_transfemoral_group_buttons");
+	  if (x.style.display === "none") {x.style.display = "block";} else {x.style.display = "none";}
+	  if (a.style.display === "none") {a.style.display = "block";} else {a.style.display = "none";}
+	}
+	function myFunction23() {var x = document.getElementById("M_I_A_Longitud_Transtibial");
+	  var a = document.getElementById("M_I_A_Longitud_Transtibial_group_buttons");
+	  if (x.style.display === "none") {x.style.display = "block";} else {x.style.display = "none";}
+	  if (a.style.display === "none") {a.style.display = "block";} else {a.style.display = "none";}
+	}
+	function myFunction24() {var x = document.getElementById("M_I_A_Edema");
+	  var a = document.getElementById("M_I_A_Edema_group_buttons");
+	  if (x.style.display === "none") {x.style.display = "block";} else {x.style.display = "none";}
+	  if (a.style.display === "none") {a.style.display = "block";} else {a.style.display = "none";}
+	}
+	function myFunction28() {var x = document.getElementById("M_I_A_Rango_articular_transfemoral"); var y = document.getElementById("M_I_A_Rango_articular_transfemoral_value");
+	  var a = document.getElementById("M_I_A_Rango_articular_transfemoral_group_buttons");
+	  if (x.style.display === "none") {x.style.display = "block";} else {x.style.display = "none";}
+	  if (y.style.display === "none") {y.style.display = "block";} else {y.style.display = "none";}
+	  if (a.style.display === "none") {a.style.display = "block";} else {a.style.display = "none";}
+	}
+	function myFunction29() {var x = document.getElementById("M_I_A_Rango_articular_transtibial"); var y = document.getElementById("M_I_A_Rango_articular_transtibial_value");
+	  var a = document.getElementById("M_I_A_Rango_articular_transtibial_buttons");
+	  if (x.style.display === "none") {x.style.display = "block";} else {x.style.display = "none";}
+	  if (y.style.display === "none") {y.style.display = "block";} else {y.style.display = "none";}
+	  if (a.style.display === "none") {a.style.display = "block";} else {a.style.display = "none";}
+	}
+	function myFunction30() {var x = document.getElementById("M_I_A_Balance_muscular_transfemoral"); var y = document.getElementById("M_I_A_Balance_muscular_transfemoral_value");
+	  var a = document.getElementById("M_I_A_Balance_muscular_transfemoral_group_buttons");
+	  if (x.style.display === "none") {x.style.display = "block";} else {x.style.display = "none";}
+	  if (y.style.display === "none") {y.style.display = "block";} else {y.style.display = "none";}
+	  if (a.style.display === "none") {a.style.display = "block";} else {a.style.display = "none";}
+	}
+	function myFunction31() {var x = document.getElementById("M_I_A_Balance_muscular_transtibial"); var y = document.getElementById("M_I_A_Balance_muscular_transtibial_value");
+	  var a = document.getElementById("M_I_A_Balance_muscular_transtibial_group_buttons");
+	  if (x.style.display === "none") {x.style.display = "block";} else {x.style.display = "none";}
+	  if (y.style.display === "none") {y.style.display = "block";} else {y.style.display = "none";}
+	  if (a.style.display === "none") {a.style.display = "block";} else {a.style.display = "none";}
+	}
+</script>
+
+
+<script>
+
+
+var slider1 = document.getElementById("M_S_Balance_muscular");
+var output1 = document.getElementById("M_S_Balance_muscular_value");
+output1.innerHTML = slider1.value;
+
+slider1.oninput = function() {
+  output1.innerHTML = this.value;
+}
+
+var slider2 = document.getElementById("M_I_No_Balance_muscular");
+var output2 = document.getElementById("M_I_No_Balance_muscular_value");
+output2.innerHTML = slider2.value;
+
+slider2.oninput = function() {
+  output2.innerHTML = this.value;
+}
+
+var slider3 = document.getElementById("M_I_A_Balance_muscular_transfemoral");
+var output3 = document.getElementById("M_I_A_Balance_muscular_transfemoral_value");
+output3.innerHTML = slider3.value;
+
+slider3.oninput = function() {
+  output3.innerHTML = this.value;
+}
+
+var slider4 = document.getElementById("M_I_A_Balance_muscular_transtibial");
+var output4 = document.getElementById("M_I_A_Balance_muscular_transtibial_value");
+output4.innerHTML = slider4.value;
+
+slider4.oninput = function() {
+  output4.innerHTML = this.value;
+}
+
+
+var slider5 = document.getElementById("M_S_Rango_articular");
+var output5 = document.getElementById("M_S_Rango_articular_value");
+output5.innerHTML = slider5.value;
+
+slider5.oninput = function() {
+  output5.innerHTML = this.value;
+}
+
+var slider6 = document.getElementById("M_I_A_Rango_articular_transfemoral");
+var output6 = document.getElementById("M_I_A_Rango_articular_transfemoral_value");
+output6.innerHTML = slider6.value;
+
+slider6.oninput = function() {
+  output6.innerHTML = this.value;
+}
+
+var slider7 = document.getElementById("M_I_A_Rango_articular_transtibial");
+var output7 = document.getElementById("M_I_A_Rango_articular_transtibial_value");
+output7.innerHTML = slider7.value;
+
+slider7.oninput = function() {
+  output7.innerHTML = this.value;
+}
+	
+	
+</script>
+
+</html>

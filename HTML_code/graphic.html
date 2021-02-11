@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<!--<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>-->
+	<!--<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>-->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>Graphic</title>
+
+	
+<style>
+
+.button {
+	box-sizing: border-box;	
+	background-color: red;
+	border-radius: 12px;
+	border-color:  black;
+	border-width: medium ;
+	color: white;	
+	float:right;	
+	padding: 15px 15px;
+	text-align: center;
+	text-decoration: none;
+	display: block;
+	font-size: 16px;
+	margin: 10px 10px;
+	cursor: pointer;
+	height:100px;
+    width:150px;
+}
+
+h3 { color: #111; font-family: 'Open Sans Condensed', sans-serif; font-size: 24px; font-weight: 700; line-height: 24px; margin: 0 0 0; padding: 20px 30px;text-align: center; text-transform: uppercase; 
+text-decoration: underline ;}
+
+
+
+input[type="text"] {
+            display: block;
+			width:100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			box-sizing: border-box;
+			border-color:  black;
+			border-radius: 12px;
+			background-color: gray;
+			color: white;
+			border-width: medium ;
+        }
+		
+input[type="int"] {
+			display: block;
+			width:100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			box-sizing: border-box;
+			border-color:  black;
+			border-radius: 12px;	
+			background-color: gray;
+			color: white;
+			border-width: medium ;
+			
+				
+        }
+		
+input[type="number"] {
+            display: block;
+			width:100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			box-sizing: border-box;
+			border-color:  black;
+			border-radius: 12px;
+			background-color: gray;
+			color: white;
+			border-width: medium ;
+			-webkit-appearance: textfield;
+			-moz-appearance: textfield;
+			appearance: textfield;
+		
+        }
+		
+		
+td.ecwid-productBrowser-details-datePicker-box input {
+  font-size: 20px;
+}
+		
+input[type=number]::-webkit-inner-spin-button {
+  width: 300px;
+  height: 60px;
+}
+
+.button_variable{
+	box-sizing: border-box;	
+	background-color: #008CBA;
+	border-color:  black;
+	width: 100%;
+	color: white;
+	padding: 15px 32px;
+	border-radius: 12px;
+	text-align: center;
+	text-decoration: none;
+	display: block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-width: medium ;
+}
+
+.button_identificacion{
+	box-sizing: border-box;	
+	background-color: #4CAF50;
+	border-color:  black;
+	width: 100%;
+	color: white;
+	padding: 15px 32px;
+	border-radius: 12px;
+	text-align: center;
+	text-decoration: none;
+	display: block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-width: medium ;
+}
+	
+	
+.resultados{
+        width: 100%;
+		max-width:100%;
+		box-sizing: border-box;
+        position: relative;
+        display: block;
+        font-size: 14px;
+		padding: 12px 20px;
+		margin: 8px 8px;
+		border-color:  black;
+		border-radius: 12px;
+		background-color: gray;
+		color: 	white;
+		border-width: medium ;
+		resize: none;	
+		overflow: hidden;
+		
+    }
+
+.reset_button {
+font-size : 15px;
+height:40px;
+  display: block;
+  margin-bottom: 10px ; 
+  background-color: red;
+	border-radius: 12px;
+	border-color:  black;
+	border-width: medium ;
+  color: white;
+  padding: 10px 32px; 
+  cursor: pointer; 
+  float: left; 
+width:100%;
+}
+
+</style>
+
+</head>
+<body>
+	<img src= "../IMAGES/HUS.jpg"		style ="left">  		
+	<button onclick="window.location.href='http://localhost/HUS_Project/HTML/home.html';" style= "top; width: 150px; height: 70px; font-size : 20px;" type="button" class="button"><i class="fa fa-home"></i> Home</button>
+	
+	
+	<input type="text" style="text-align:center; background-color: white; color: black" ; id="Id_patient_1"  class="first_input" placeholder="¿Identificacion del paciente?">
+	<button type="button" class="button_identificacion" id="button_identificacion"  onclick= "abrir('page_variables')" style="width:100%">Busqueda de datos</button>
+				
+	<form data-role="page_variables" id="page_variables" style="display: none">
+		<h3>Miembros superiores</h3>
+		<button type="button" class="button_variable" id="M_S_Rango_articular"  onclick= "abrir('Graphic_r_a');consulta('Id_patient_1','M_S_Rango_articular','M_S_Rango_articular_values','prueba_r_a')" style="width:100%">Rango articular</button>
+		<div  id="Graphic_r_a" style="display: none">
+			<br></br>
+			<textarea id="M_S_Rango_articular_values"  class="resultados" readonly></textarea>
+			<div  id="prueba_r_a" style="height: 370px; width: 100%;"></div>
+			<br></br>
+			<button class="reset_button" onClick="window.location.reload();" ><i class="fa fa-refresh">     Reset para buscar nuevo ID</i></button>
+		</div>
+		<button type="button" class="button_variable" id="M_S_Balance_muscular" onclick= "abrir('Graphic_b_m');consulta('Id_patient_1','M_S_Balance_muscular','M_S_Balance_muscular_values','prueba_b_m')" style="width:100%">Balance muscular</button>
+		<div  id="Graphic_b_m" style="display: none">
+			<br></br>	
+			<textarea  id="M_S_Balance_muscular_values" class="resultados" readonly></textarea>
+			<div  id="prueba_b_m" style="height: 370px; width: 100%;"></div>
+			<br></br>
+			<button class="reset_button" onClick="window.location.reload();" ><i class="fa fa-refresh">     Reset para buscar nuevo ID</i></button>
+		</div>
+		<h3>Miembros inferiores no amputado</h3>
+		<button type="button" class="button_variable" id="M_I_No_Balance_muscular"  onclick= "abrir('Graphic_b_m_2');consulta('Id_patient_1','M_I_No_Balance_muscular','M_I_No_Balance_muscular_values','prueba_b_m_m_i_no')" style="width:100%">Rango articular</button>
+		<div  id="Graphic_b_m_2" style="display: none">
+			<br></br>
+			<textarea id="M_I_No_Balance_muscular_values"  class="resultados" readonly></textarea>
+			<div  id="prueba_b_m_m_i_no" style="height: 370px; width: 100%;"></div>
+			<br></br>
+			<button class="reset_button" onClick="window.location.reload();" ><i class="fa fa-refresh">     Reset para buscar nuevo ID</i></button>
+		</div>
+		<h3>Miembros inferiores amputado</h3>
+		<button type="button" class="button_variable" id="M_I_A_Rango_articular_transfemoral"  onclick= "abrir('Graphic_r_a_2');consulta('Id_patient_1','M_I_A_Rango_articular_transfemoral','M_I_A_Rango_articular_transfemoral_values','prueba_r_a_transf')" style="width:100%">Rango articular transfemoral</button>
+		<div  id="Graphic_r_a_2" style="display: none">
+			<br></br>
+			<textarea id="M_I_A_Rango_articular_transfemoral_values"  class="resultados" readonly></textarea>
+			<div  id="prueba_r_a_transf" style="height: 370px; width: 100%;"></div>
+			<br></br>
+			<button class="reset_button" onClick="window.location.reload();" ><i class="fa fa-refresh">     Reset para buscar nuevo ID</i></button>
+		</div>
+		<button type="button" class="button_variable" id="M_I_A_Rango_articular_transtibial"  onclick= "abrir('Graphic_r_a_3');consulta('Id_patient_1','M_I_A_Rango_articular_transtibial','M_I_A_Rango_articular_transtibial_values','prueba_r_a_transt')" style="width:100%">Rango articular transtibial</button>
+		<div  id="Graphic_r_a_3" style="display: none">
+			<br></br>
+			<textarea id="M_I_A_Rango_articular_transtibial_values"  class="resultados" readonly></textarea>
+			<div  id="prueba_r_a_transt" style="height: 370px; width: 100%;"></div>
+			<br></br>
+			<button class="reset_button" onClick="window.location.reload();" ><i class="fa fa-refresh">     Reset para buscar nuevo ID</i></button>
+		</div>
+		<button type="button" class="button_variable" id="M_I_A_Balance_muscular_transfemoral"  onclick= "abrir('Graphic_b_m_3');consulta('Id_patient_1','M_I_A_Balance_muscular_transfemoral','M_I_A_Balance_muscular_transfemoral_values','prueba_b_m_transf')" style="width:100%">Rango articular transfemoral</button>
+		<div  id="Graphic_b_m_3" style="display: none">
+			<br></br>
+			<textarea id="M_I_A_Balance_muscular_transfemoral_values"  class="resultados" readonly></textarea>
+			<div  id="prueba_b_m_transf" style="height: 370px; width: 100%;"></div>
+			<br></br>
+			<button class="reset_button" onClick="window.location.reload();" ><i class="fa fa-refresh">     Reset para buscar nuevo ID</i></button>
+		</div>
+		<button type="button" class="button_variable" id="M_I_A_Balance_muscular_transtibial"  onclick= "abrir('Graphic_b_m_4');consulta('Id_patient_1','M_I_A_Balance_muscular_transtibial','M_I_A_Balance_muscular_transtibial_values','prueba_b_m_transt')" style="width:100%">Rango articular transtibial</button>
+		<div  id="Graphic_b_m_4" style="display: none">
+			<br></br>
+			<textarea id="M_I_A_Balance_muscular_transtibial_values"  class="resultados" readonly></textarea>
+			<div  id="prueba_b_m_transt" style="height: 370px; width: 100%;"></div>
+			<br></br>
+			<button class="reset_button" onClick="window.location.reload();" ><i class="fa fa-refresh">     Reset para buscar nuevo ID</i></button>
+		</div>
+	</form>
+
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>	
+</body>
+
+<script type="text/javascript">
+	function abrir(grafica){
+		var x = document.getElementById(grafica);
+		if (x.style.display === "none") {x.style.display = "block";} else {x.style.display = "none";}
+	}
+</script>
+
+<script type="text/javascript">
+
+	function consulta(identificacion, variable,textoarea, grafica){
+		var identificacion_valor = document.getElementById(identificacion).value;   
+		$.ajax({
+			url:'../PHP/variables_for_graphic.php',
+			method:'POST',
+			data:{
+				identificacion_valor:identificacion_valor ,
+				variable : variable
+			}
+		})
+		.done(function(eco){
+			var prueba = eco.split(';');
+			var string_values = prueba[0];
+			var label_values = prueba[1];
+			string_values = string_values.split(',');
+			label_values = label_values.split(',');
+			
+			var list_string = [];
+			
+			for (i = 0; i < string_values.length; i++) {
+				string_value = string_values[i];
+				string_value = string_value.replace(/['"]+/g, '');
+				string_value = parseFloat(string_value);
+				list_string.push(string_value);
+			}
+			
+
+			document.getElementById(textoarea).value = list_string;
+			
+			dataset_y = [];
+			i = 0;
+			list_string.forEach(function(value_from_list) {
+			 dataset_y.push({y: parseFloat(value_from_list) , label : label_values[i] }); 
+			 i += 1;
+			}); 	
+			
+			var chart = new CanvasJS.Chart(grafica, {
+				animationEnabled: true,
+				theme: "light2",
+				title:{
+					text: "Rango articular M.S Chart"
+				},
+					data: [{        
+						type: "line",
+						indexLabelFontSize: 16,
+						dataPoints: dataset_y 
+						
+					}]
+				});
+				chart.render();
+		});
+		
+	}
+</script>
+
+
+</html>

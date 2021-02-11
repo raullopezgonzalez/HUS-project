@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>Search</title>
+
+	
+<style>
+p.two {
+	background-color:#3CBC8D;
+	color : white; 
+	padding: 12px 20px; 
+	margin: 8px 0; 
+	border-style: solid;
+	border-color: black;
+	border-radius: 12px; 
+	border-width: medium ;
+	
+
+}
+
+p.one {
+	background-color:#008CBA;
+	color : white; 
+	padding: 12px 20px; 
+	margin: 8px 0; 
+	border-style: solid;
+	border-color: black;
+	border-radius: 12px; 
+	border-width: medium ;
+	text-align: center;
+
+}
+
+.button_save{	
+	font-size : 30px;
+	height:70px;
+	box-sizing: border-box;	
+	background-color: #4CAF50;
+	border-color:  black;
+	width: 100%;
+	color: white;
+	padding: 15px 32px;
+	border-radius: 12px;
+	text-align: center;
+	text-decoration: none;
+	display: block;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-width: medium ;
+}
+
+
+.button_1, .button_2{
+	box-sizing: border-box;	
+	background-color: #4CAF50;
+	border-color:  black;
+	width: 100%;
+	color: white;
+	padding: 15px 32px;
+	border-radius: 12px;
+	text-align: center;
+	text-decoration: none;
+	display: block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-width: medium ;
+
+}
+
+.button {
+	box-sizing: border-box;	
+	background-color: red;
+	border-radius: 12px;
+	border-color:  black;
+	border-width: medium ;
+	color: white;	
+	float:right;	
+	padding: 15px 15px;
+	text-align: center;
+	text-decoration: none;
+	display: block;
+	font-size: 16px;
+	margin: 10px 10px;
+	cursor: pointer;
+	height:100px;
+    width:150px;
+}
+
+h1 { color: #111; font-family: 'Open Sans Condensed', sans-serif; font-size: 48px; font-weight: 700; line-height: 48px; margin: 0 0 0; padding: 20px 30px; text-align: center; text-transform: uppercase; 
+text-decoration: underline ;}
+
+
+h2 { color: #111; font-family: 'Open Sans Condensed', sans-serif; font-size: 32px; font-weight: 700; line-height: 32px; margin: 0 0 0; padding: 0 30px; text-align: center; text-transform: uppercase; 
+text-decoration: underline ;}
+
+h3 { color: #111; font-family: 'Open Sans Condensed', sans-serif; font-size: 24px; font-weight: 700; line-height: 24px; margin: 0 0 0; padding: 20px 30px;text-align: center; text-transform: uppercase; 
+text-decoration: underline ;}
+
+
+h4 { color: #111; font-family: 'Open Sans Condensed', sans-serif; font-size: 12px; font-weight: 700; line-height: 12px; margin: 0 0 24px; padding: 0 30px; text-align: center; text-transform: uppercase; 
+text-decoration: underline ;}
+
+
+input[type="text"] {
+            display: block;
+			width:100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			box-sizing: border-box;
+			border-color:  black;
+			border-radius: 12px;
+			background-color: gray;
+			color: white;
+			border-width: medium ;
+        }
+		
+input[type="int"] {
+			display: block;
+			width:100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			box-sizing: border-box;
+			border-color:  black;
+			border-radius: 12px;	
+			background-color: gray;
+			color: white;
+			border-width: medium ;
+			
+				
+        }
+		
+input[type="number"] {
+            display: block;
+			width:100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			box-sizing: border-box;
+			border-color:  black;
+			border-radius: 12px;
+			background-color: gray;
+			color: white;
+			border-width: medium ;
+			-webkit-appearance: textfield;
+			-moz-appearance: textfield;
+			appearance: textfield;
+		
+        }
+		
+input[type="date"] {
+            display: block;
+			width:100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			box-sizing: border-box;
+			border-color:  black;
+			border-radius: 12px;
+			background-color: gray;
+			color: white;
+			border-width: medium ;
+        }
+		
+td.ecwid-productBrowser-details-datePicker-box input {
+  font-size: 20px;
+}
+		
+input[type=number]::-webkit-inner-spin-button {
+  width: 300px;
+  height: 60px;
+}
+
+
+
+::placeholder {
+  color: white;
+  }
+		
+		
+.slider { -webkit-appearance: none;width: 100%;height: 25px;background: grey;border:  black;border-radius: 12px;border-width: medium ;outline: none;opacity: 1;-webkit-transition: .2s;transition: opacity .2s;
+}
+.slider:hover {opacity: 1.5;
+}
+.slider::-webkit-slider-thumb {-webkit-appearance: none;appearance: none;width: 25px;height: 25px;background: yellow; border-radius: 50%; border:  black;cursor: pointer;
+}
+.slider::-moz-range-thumb {width: 25px;height: 25px;border-radius: 50%; border:  black;background: yellow;cursor: pointer;
+}
+
+
+.first_input::-webkit-input-placeholder {
+    color: black;
+}
+
+
+
+.fechas_resultados{
+        width: 100%;
+		max-width:100%;
+		box-sizing: border-box;
+        position: relative;
+        display: block;
+        font-size: 14px;
+		padding: 12px 20px;
+		margin: 8px 8px;
+		border-color:  black;
+		border-radius: 12px;
+		background-color: gray;
+		color: 	white;
+		border-width: medium ;
+		resize: none;	
+		overflow: hidden;
+		
+    }
+
+</style>
+
+
+
+</head>
+<body>
+	<img src= "../IMAGES/HUS.jpg"		style ="left"><p>  
+			
+	<button onclick="window.location.href='http://localhost/HUS_Project/HTML/home.html';" style= "top; width: 150px; height: 70px; font-size : 20px;" type="button" class="button"><i class="fa fa-home"></i> Home</button>
+	
+	
+    <form data-role="page" id="search-box">
+        <input type="text" style="text-align:center; background-color: white; color: black" ; id="Id_patient_1"  class="first_input" placeholder="¿Identificacion del paciente?"> 	
+    </form>
+	<button type="button" id="button_1" class="button_1">Search Id</button>
+	
+	
+	
+	<form data-role="page_1" id="fecha" style="visibility: hidden">
+		<br></br>
+		<h2>Fechas disponibles</h2>
+		<textarea class="fechas_resultados" id="resultado" type="text" readonly></textarea>
+		<br></br>
+		<h2>Fecha de la sesion seleccionada</h2>
+		<input type="date" id="Date_1" data-role="calendarpicker" data-input-format="%y-%m-%d"> 
+		<button type="button" id="button_2" class="button_2">Search patient</button>
+	</form>
+	
+	
+	
+	<form data-role="page_2" id="formularioCambio" style="visibility: hidden">
+		<h1>Identificacion del paciente</h1>
+		<input type="text" id="Id_patient" autocomplete="off" placeholder="Identifiation . . ." ><p>	
+		
+		<h2>Vida basal previa</h2>
+		<p class="one">Nivel de amputacion</p>
+		<input type="text" id="Nivel_de_amputacion"  placeholder="Texto . . .">
+		<p class="one">Deambulacion previa</p>
+		<input type="number" min="0" max="1" onkeyup="if(this.value > 1) this.value = null;" onkeydown="if(this.value < 0) this.value = null;" id="Deambulacion_previa" placeholder="Digitos . . . Minimun value 0, and maximun value 1.">
+		<p class="one">Independiente o no</p>
+		<input type="number" min="0" max="1" onkeyup="if(this.value > 1) this.value = null;" onkeydown="if(this.value < 0) this.value = null;" id="Independiente_o_no" placeholder="Digitos . . .Minimun value 0, and maximun value 1."><p>
+		<p class="one">Vive solo</p>
+		<input type="number" min="0" max="1" onkeyup="if(this.value > 1) this.value = null;" onkeydown="if(this.value < 0) this.value = null;" id="Vive_solo" placeholder="Digitos . . .Minimun value 0, and maximun value 1."><p>
+		<p class="one">Ascensor</p>
+		<input type="number" min="0" max="1" onkeyup="if(this.value > 1) this.value = null;" onkeydown="if(this.value < 0) this.value = null;" id="Ascensor" placeholder="Digitos . . .Minimun value 0, and maximun value 1."><p>
+		<p class="one">Alteraciones de la vision</p>
+		<input type="number" min="0" max="1" onkeyup="if(this.value > 1) this.value = null;" onkeydown="if(this.value < 0) this.value = null;" id="Alteraciones_de_la_vision" placeholder="Digitos . . .Minimun value 0, and maximun value 1."><p>
+		<p class="one">Deterioro cognitivo</p>
+		<input type="number" min="0" max="1" onkeyup="if(this.value > 1) this.value = null;" onkeydown="if(this.value < 0) this.value = null;" id="Deterioro_cognitivo" placeholder="Digitos . . .Minimun value 0, and maximun value 1."><p>
+		
+		<h2>Estado general del paciente</h2>
+		<input type="text" id="Estado_general_del_paciente" placeholder="Texto . . ."><p>
+		
+		<h2>Grado de colaboracion</h2>
+		<input type="int" id="Grado_de_colaboracion" placeholder="Numeros . . ."><p>
+		
+		<h2>Miembros superiores</h2>
+		<p class="one">Deformidades</p>
+		<input type="int" id="M_S_Deformidades" placeholder="Texto . . ."><p>
+		<p class="one">Rango articular</p>
+		<input type="range" min="0" max="360"  class="slider" id="M_S_Rango_articular">
+		<p class="two">Value in degrees: <span id="M_S_Rango_articular_value"></span></p>
+		<p class="one">Balance muscular global</p>
+		
+		<input type="range" min="1" max="5"  class="slider" value="M_S_Balance_muscular" id="M_S_Balance_muscular" oninput="myFunction()"> 
+		<p class="two">Value: <span id="M_S_Balance_muscular_value"></span></p>
+		
+		<p class="one">Manos</p>
+		<input type="int" id="M_S_Manos" placeholder="Texto . . ."><p>
+		
+		<h2>Miembros inferiores</h2>
+		
+		<h3>No amputado</h3>
+		<p class="one">Funcionalidad</p>
+		<input type="int" id="M_I_No_Funcionalidad" placeholder="Texto . . ."><p>
+		<p class="one">Presencia de flexos</p>
+		<input type="number" min="0" max="1" onkeyup="if(this.value > 1) this.value = null;" onkeydown="if(this.value < 0) this.value = null;" id="M_I_No_Presencia_de_flexos" placeholder="Digitos . . .Minimun value 0, and maximun value 1."><p>
+		<p class="one">Presencia de dolor en articulaciones por artrosis</p>
+		<input type="number" min="0" max="1" onkeyup="if(this.value > 1) this.value = null;" onkeydown="if(this.value < 0) this.value = null;" id="M_I_No_Presencia_de_dolor_en_articulaciones_por_artrosis" placeholder="Digitos . . .Minimun value 0, and maximun value 1."><p>
+		<p class="one">Balance muscular</p>
+		<input type="range" min="1" max="5"  class="slider" id="M_I_No_Balance_muscular">
+		<p class="two">Value: <span id="M_I_No_Balance_muscular_value"></span></p>
+		<p class="one">Pulsos arteriales distales</p>
+		<input type="int" id="M_I_No_Pulsos_arteriales_distales" placeholder="Texto . . ."><p>
+		
+		<h3>Amputado</h3>
+		<p class="one">Nivel</p>
+		<input type="int" id="M_I_A_Nivel" placeholder="Texto . . ."><p>
+		<h4>Describir munon</h4>
+		<p class="one">Inspeccion</p>
+		<input type="int" id="M_I_A_Inspeccion" placeholder="Texto . . ."><p>
+		<p class="one">Conformacion del munon</p>
+		<input type="int" id="M_I_A_Conformacion_del_munon" placeholder="Texto . . ."><p>
+		<p class="one">Longitud transfemoral</p>
+		<input type="int" id="M_I_A_Longitud_transfemoral" placeholder="Numeros . . ."><p>
+		<p class="one">Longitud Transtibial</p>
+		<input type="int" id="M_I_A_Longitud_Transtibial" placeholder="Numeros . . ."><p>
+		<p class="one">Edema</p>
+		<input type="int" id="M_I_A_Edema" placeholder="Numeros . . ."><p>
+		<p class="one">Presencia o no de espicula osea</p>
+		<input type="int" id="M_I_A_Presencia_espicula_osea" placeholder="Texto . . ."><p>
+		<p class="one">Actitud del munon</p>
+		<input type="int" id="M_I_A_Actitud_del_munon" placeholder="Texto . . ."><p>
+		<p class="one">Rese&ntildear cualquier hallazgo que nos llame la atencion en el munon</p>
+		<input type="int" id="M_I_A_Rasgos_anadibles" placeholder="Texto . . ."><p>
+		<h4>Rango articular</h4>
+		<p class="one">Transfemoral</p>
+		<input type="range" min="0" max="360"  class="slider" id="M_I_A_Rango_articular_transfemoral">
+		<p class="two">Value in degrees: <span id="M_I_A_Rango_articular_transfemoral_value"></span></p>
+		<p class="one">Transtibial</p>
+		<input type="range" min="0" max="360"  class="slider" id="M_I_A_Rango_articular_transtibial">
+		<p class="two">Value in degrees: <span id="M_I_A_Rango_articular_transtibial_value"></span></p>
+		<h4>Balance muscular</h4>
+		<p class="one">Transfemoral</p>
+		<input type="range" min="1" max="5"  class="slider" id="M_I_A_Balance_muscular_transfemoral">
+		<p class="two">Value: <span id="M_I_A_Balance_muscular_transfemoral_value"></span></p>
+		<p class="one">Transtibial</p>
+		<input type="range" min="1" max="5"  class="slider" id="M_I_A_Balance_muscular_transtibial">
+		<p class="two">Value: <span id="M_I_A_Balance_muscular_transtibial_value"></span></p>
+		<h4>Miembro fantasma</h4>
+		<input type="int" id="Miembro_fantasma" placeholder="Texto . . ."><p>
+		<h4>Valor equilibrio unipodal</h4>
+		<input type="int" id="Valor_equilibrion_unipodal" placeholder="Texto . . ."><p>
+		<h2>Fecha seleccionada previamente</h2>
+		<input type="text" id="Date"  placeholder="Texto . . ." readonly>
+		<br></br>
+		
+		<button type="submit" id="button_3" class="button_save" style=" background-color : red; width:100%;"><i class="fa fa-pencil">   Save changes</i></button> 
+	</form>
+	
+	
+	
+</body>
+
+
+<script>
+
+
+var slider1 = document.getElementById("M_S_Balance_muscular");
+var output1 = document.getElementById("M_S_Balance_muscular_value");
+output1.innerHTML = slider1.value;
+
+slider1.oninput = function() {
+  output1.innerHTML = this.value;
+}
+
+var slider2 = document.getElementById("M_I_No_Balance_muscular");
+var output2 = document.getElementById("M_I_No_Balance_muscular_value");
+output2.innerHTML = slider2.value;
+
+slider2.oninput = function() {
+  output2.innerHTML = this.value;
+}
+
+var slider3 = document.getElementById("M_I_A_Balance_muscular_transfemoral");
+var output3 = document.getElementById("M_I_A_Balance_muscular_transfemoral_value");
+output3.innerHTML = slider3.value;
+
+slider3.oninput = function() {
+  output3.innerHTML = this.value;
+}
+
+var slider4 = document.getElementById("M_I_A_Balance_muscular_transtibial");
+var output4 = document.getElementById("M_I_A_Balance_muscular_transtibial_value");
+output4.innerHTML = slider4.value;
+
+slider4.oninput = function() {
+  output4.innerHTML = this.value;
+}
+
+
+
+
+var slider5 = document.getElementById("M_S_Rango_articular");
+var output5 = document.getElementById("M_S_Rango_articular_value");
+output5.innerHTML = slider5.value;
+
+slider5.oninput = function() {
+  output5.innerHTML = this.value;
+}
+
+var slider6 = document.getElementById("M_I_A_Rango_articular_transfemoral");
+var output6 = document.getElementById("M_I_A_Rango_articular_transfemoral_value");
+output6.innerHTML = slider6.value;
+
+slider6.oninput = function() {
+  output6.innerHTML = this.value;
+}
+
+var slider7 = document.getElementById("M_I_A_Rango_articular_transtibial");
+var output7 = document.getElementById("M_I_A_Rango_articular_transtibial_value");
+output7.innerHTML = slider7.value;
+
+slider7.oninput = function() {
+  output7.innerHTML = this.value;
+}
+	
+	
+</script>
+
+<script>
+	$(document).ready(function(){
+		$("#button_1").click(function(){
+			var Id_patient = $("#Id_patient_1").val();
+			$.ajax({
+				url:'../PHP/backend-search_fecha_2.php',
+				method:'POST',
+				data:{
+					Id_patient:Id_patient   
+				}
+				
+			})
+			.done(function(eco){
+			
+			  var x = document.getElementById("fecha");
+			  if (x.style.visibility === "hidden") {
+				x.style.visibility = "visible";
+			  } 
+			  else {
+				x.style.visibility = "hidden";
+			  }
+			  			
+			
+			document.getElementById("resultado").value = eco;
+			
+				
+
+			});
+		});
+		
+	});
+</script>
+
+
+
+<script>
+	$(document).ready(function(){
+		$("#button_2").click(function(){
+			var Id_patient = $("#Id_patient_1").val();
+			var Date= $("#Date_1").val();
+			$.ajax({
+				url:'../PHP/backend-search.php',
+				method:'POST',
+				data:{
+					Id_patient:Id_patient,   
+					Date:Date   
+				}
+				
+			})
+			.done(function(eco){
+			  var x = document.getElementById("formularioCambio");
+			  if (x.style.visibility === "hidden") {
+				x.style.visibility = "visible";
+			  } else {
+				x.style.visibility = "hidden";
+			  }
+			  
+			  
+			  eco= JSON.parse(eco);
+			  
+			  for(var i in eco){
+					var key = i;
+					var e = document.getElementById(i);
+					e.value = eco[i];
+					
+					}
+				var slider1 = document.getElementById("M_S_Balance_muscular");
+				var output1 = document.getElementById("M_S_Balance_muscular_value");
+				output1.innerHTML = slider1.value;
+				var slider2 = document.getElementById("M_I_No_Balance_muscular");
+				var output2 = document.getElementById("M_I_No_Balance_muscular_value");
+				output2.innerHTML = slider2.value;
+				var slider3 = document.getElementById("M_I_A_Balance_muscular_transfemoral");
+				var output3 = document.getElementById("M_I_A_Balance_muscular_transfemoral_value");
+				output3.innerHTML = slider3.value;
+				var slider4 = document.getElementById("M_I_A_Balance_muscular_transtibial");
+				var output4 = document.getElementById("M_I_A_Balance_muscular_transtibial_value");
+				output4.innerHTML = slider4.value;
+				var slider5 = document.getElementById("M_S_Rango_articular");
+				var output5 = document.getElementById("M_S_Rango_articular_value");
+				output5.innerHTML = slider5.value;
+				var slider6 = document.getElementById("M_I_A_Rango_articular_transfemoral");
+				var output6 = document.getElementById("M_I_A_Rango_articular_transfemoral_value");
+				output6.innerHTML = slider6.value;
+				var slider7 = document.getElementById("M_I_A_Rango_articular_transtibial");
+				var output7 = document.getElementById("M_I_A_Rango_articular_transtibial_value");
+				output7.innerHTML = slider7.value;
+				
+			});
+				
+						
+		});
+		
+		
+		$("#button_3").click(function() {
+			var x = document.getElementById("formularioCambio").elements.length; 
+			var e = document.getElementById("formularioCambio").elements; 
+			var json = { };
+			for(var i = 0;i<x;i++){
+					json[e[i].id] = e[i].value;
+					}
+			$.ajax({
+				url:'../PHP/edit.php',
+				type:"POST",
+				data:
+					json,
+				
+			})
+		}); 
+	});
+</script>
+</html>
